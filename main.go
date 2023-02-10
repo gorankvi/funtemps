@@ -3,12 +3,17 @@ package main
 import (
 	"flag"
 	"fmt"
+
+	"github.com/gorankvi/funtemps/conv"
 )
 
 // Definerer flag-variablene i hoved-"scope"
 var fahr float64
+var celsius float64
+var kelvin float64
 var out string
 var funfacts string
+var temperatur string
 
 // Bruker init (som anbefalt i dokumentasjonen) for å sikre at flagvariablene
 // er initialisert.
@@ -24,8 +29,11 @@ func init() {
 	// Definerer og initialiserer flagg-variablene
 	flag.Float64Var(&fahr, "F", 0.0, "temperatur i grader fahrenheit")
 	// Du må selv definere flag-variablene for "C" og "K"
+	flag.Float64Var(&celsius, "C", 0.0, "temperatur i grader celsius" )
+	flag.Float64Var(&kelvin, "K", 0.0, "temperatur i grader kelvin" )
 	flag.StringVar(&out, "out", "C", "beregne temperatur i C - celsius, F - farhenheit, K- Kelvin")
 	flag.StringVar(&funfacts, "funfacts", "sun", "\"fun-facts\" om sun - Solen, luna - Månen og terra - Jorden")
+	flag.StringVar(&temperatur, "-t","C","temperaturskala")
 	// Du må selv definere flag-variabelen for -t flagget, som bestemmer
 	// hvilken temperaturskala skal brukes når funfacts skal vises
 
@@ -35,6 +43,7 @@ func main() {
 
 	flag.Parse()
 
+		fmt.Println()
 	/**
 	    Her må logikken for flaggene og kall til funksjoner fra conv og funfacts
 	    pakkene implementeres.
@@ -59,6 +68,8 @@ func main() {
 	*/
 
 	// Her er noen eksempler du kan bruke i den manuelle testingen
+	fmt.Println(conv.FarhenheitToCelsius(10))
+	
 	fmt.Println(fahr, out, funfacts)
 
 	fmt.Println("len(flag.Args())", len(flag.Args()))
@@ -72,6 +83,7 @@ func main() {
 		// skal returnere °C
 		fmt.Println("0°F er -17.78°C")
 	}
+	
 
 }
 
@@ -85,4 +97,7 @@ func isFlagPassed(name string) bool {
 		}
 	})
 	return found
+
+	
+	
 }
