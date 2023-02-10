@@ -4,24 +4,17 @@ import (
 	"reflect"
 	"testing"
 )
-
-/*
-*
-
-	Mal for TestGetFunFacts funksjonen.
-	Definer korrekte typer for input og want,
-	og sette korrekte testverdier i slice tests.
-*/
+// Tester at GetFunFacts returnerer riktig string ved input. PASS
 func TestGetFunFacts(t *testing.T) {
-	type test struct {
-		input // her må du skrive riktig type for input
-		want  // her må du skrive riktig type for returverdien
+	tests := []struct {
+		input string
+		want  []string
+	}{
+		{input: "sun", want: facts.Sun},
+		{input: "luna", want: facts.Luna},
+		{input: "terra", want: facts.Terra},
+		{input: "unknown", want: []string{}},
 	}
-
-	// Her må du legge inn korrekte testverdier
-	//tests := []test{
-	//  {input: , want: },
-	//}
 
 	for _, tc := range tests {
 		got := GetFunFacts(tc.input)
