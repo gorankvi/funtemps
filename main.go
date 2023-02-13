@@ -65,7 +65,7 @@ func main() {
 			}
 		} else if isFlagPassed("K") {
 			if out == "F" {
-				fmt.Printf("%.2fK er %.2fF°\n", kelvin, conv.KelvinToCelsius(fahr))
+				fmt.Printf("%.2fK er %.2fF°\n", kelvin, conv.KelvinToFarhenheit(fahr))
 			}
 		}
 	}
