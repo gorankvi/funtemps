@@ -1,3 +1,3 @@
-module github.com/gorankvi/funtemps
+module "github.com/gorankvi/funtemps"
 
 go 1.19

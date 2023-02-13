@@ -2,15 +2,15 @@ package conv
 
 import "math"
 
-// Konverterer Farhenheit til Celsius
+// Konverterer Fahrenheit til Celsius
 
-func FarhenheitToCelsius(value float64) float64 {
+func FahrenheitToCelsius(value float64) float64 {
 		result := (value - 32) * (5.0 / 9.0)
 		return math.Round(result*100) / 100
 	}
 
 // Konverterer Farhenheit til Kelvin
-func FarhenheitToKelvin(value float64) float64{
+func FahrenheitToKelvin(value float64) float64{
 	result:= (value - 32.0) * (5.0/9.0) + 273.15
 	return math.Round(result*100) / 100
 }
