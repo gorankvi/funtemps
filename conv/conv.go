@@ -5,7 +5,7 @@ import "math"
 // Konverterer Fahrenheit til Celsius
 
 func FahrenheitToCelsius(value float64) float64 {
-		result := (value - 32) * (5.0 / 9.0)
+		result := (value - 32.0) * (5.0 / 9.0)
 		return math.Round(result*100) / 100
 	}
 
